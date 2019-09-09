@@ -7,6 +7,7 @@
         "cells": [
             {
                 "icon":"",
+                "text":"",
                 "action_url":"",
                 "background-color":"",
                 "horizontal-span":"",
@@ -14,6 +15,7 @@
             },
             {
                 "icon":"",
+                "text":"",
                 "action_url":"",
                 "background-color":"",
                 "horizontal-span":"",
