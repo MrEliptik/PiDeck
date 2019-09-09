@@ -1,6 +1,9 @@
 const http  = require('http');
 const fs    = require('fs');
 const { exec } = require('child_process');
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var spotifyApi = new SpotifyWebApi();
 
 
 // Reading the file that has to be displayed
