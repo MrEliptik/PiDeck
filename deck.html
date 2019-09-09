@@ -82,16 +82,26 @@
 </body>
 
 <script>
+  var lcdState = '1';
+
   var cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.addEventListener('touchend', (e) => {
       e.preventDefault();
+
+      if(lcdState == '0'){
+        sendHTTPrequest('lcd_backlight_on');
+        //TODO: handle error
+        lcdState = '1';
+        return;
+      }
+
       console.log(e.currentTarget.id);
       if(e.currentTarget.id == "cell_1"){
         document.getElementById('cell_1').innerHTML = '<i class="fas fa-lightbulb"></i>';
         sendHTTPrequest('lcd_backlight_off');
         // TODO: handle error
-        window.addEventListener('touchend', wakeUpScreen, false);
+        lcdState = '0';
       }
       else if(e.currentTarget.id == "cell_2"){
         
@@ -110,11 +120,6 @@
       }
     })
   });
-
-  function wakeUpScreen(){
-    window.removeEventListener('touchend', wakeUpScreen, false);
-    sendHTTPrequest('lcd_backlight_on');
-  }
 
   function sendHTTPrequest(url){
     var xhr = new XMLHttpRequest();
