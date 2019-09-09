@@ -1,5 +1,6 @@
 const http  = require('http');
 const fs    = require('fs');
+const { exec } = require('child_process');
 
 
 // Reading the file that has to be displayed
@@ -54,9 +55,33 @@ var server = http.createServer(function(req, res) {
     }
     // POST METHOD when user want to send something
     } else if(req.method === "POST") {
-    // CHECK IF USER WANTS TO UPLOAD
+        if(req.url == "/lcd_backlight_off"){
+            console.log('toggle off');
+            // Turn display off
+            toggleDisplayBacklight('0');
+        }
+        else if(req.url == "/lcd_backlight_on"){
+            console.log('toggle on');
+            // Turn display on
+            toggleDisplayBacklight('1');
+        }
+        res.writeHead(200);
+        res.end();
     }
 });
 server.listen(8081);
+
+function toggleDisplayBacklight(state){
+    exec('vcgencmd display_power ' + String(state), (err, stdout, stderr) => {
+        if (err) {
+          // node couldn't execute the command
+          return;
+        }
+      
+        // the *entire* stdout and stderr (buffered)
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+      });
+}
 
 console.log('Server running at http://localhost:8081/');
