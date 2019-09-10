@@ -31,12 +31,22 @@ fs.readFile('./upload.js', function(err, data) {
 });
 */
 
+fs.readFile("config.json", function(err, data) {
+    if (err){
+        throw err;
+    }
+    configFile = JSON.parse(data);
+    console.log(configFile);
+
+    html = createHTML(configFile);
+});
+
 // Server creation
 var server = http.createServer(function(req, res) {
 
-  // GET methode -> User wants something (html, css, etc..)
+  // GET method -> User wants something (html, css, etc..)
     if(req.method === "GET") {
-        // Serves different pages depending on what whants the client
+        // Serves different pages depending on what wants the client
         switch (req.url) {
             case "/upload.js" :
                 res.writeHead(200, {"Content-Type": "application/js"});
@@ -50,7 +60,7 @@ var server = http.createServer(function(req, res) {
                 break;
             case "/" :
                 res.writeHead(200, {"Content-Type": "text/html"});
-                res.write(htmlFile);
+                res.write(html);
                 res.end();
                 break;
             default :
@@ -85,6 +95,121 @@ function toggleDisplayBacklight(state){
         console.log(`stdout: ${stdout}`);
         console.log(`stderr: ${stderr}`);
       });
+}
+
+function createHTML(json_config){
+    cells = '';
+    for(var i = 0; i < json_config.grid.cells.length; i++){
+        cells += `<div class="cell" id="cell_${i}">${json_config.grid.cells[i].icon}${json_config.grid.cells[i].text}</div>`
+    }
+    html = `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>PiDeck</title>
+        <style>
+          body,
+          html {
+            margin: 0;
+            padding: 0;
+            cursor: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7),
+              auto;
+            height: ${json_config.height}px;
+            width: ${json_config.width}px;
+          }
+    
+          i {
+            color: rgba(30, 135, 206, 0.835);
+          }
+    
+          .grid {
+            max-width: ${json_config.width}px;
+            max_height: ${json_config.height}px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(${json_config.width/json_config.grid.columns}px, 1fr));
+            /*grid-template-columns: repeat(${json_config.grid.columns}, minmax(0, 1fr));*/
+            /*grid-auto-rows: 1fr;*/
+            grid-template-rows: repeat(auto-fit, minmax(${json_config.height/json_config.grid.rows}px, 1fr));
+          }
+    
+          /* Just to make the grid visible */
+          .grid > * {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            background: rgba(71, 71, 71, 0.1);
+            border: 1px white solid;
+          }
+        </style>
+        <script src="https://kit.fontawesome.com/9a5860ea71.js"></script>
+      </head>
+    
+      <body>
+        <!--
+        <div>
+          <iframe
+            src="https://calendar.google.com/calendar/embed?height=480&amp;wkst=1&amp;bgcolor=%23525252&amp;ctz=Europe%2FParis&amp;src=dmljdG9yLm1ldW5pZXJwa0BnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342&amp;color=%23D50000&amp;color=%23009688&amp;showTitle=0&amp;mode=WEEK&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=1&amp;showTz=1"
+            style="border-width:0"
+            width="800"
+            height="480"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+      -->
+        <div class="grid" style="font-size: 64px; text-align: center;">
+          ${cells}
+        </div>
+      </body>
+    
+      <script>
+        var lcdState = "1";
+    
+        var cells = document.querySelectorAll(".cell");
+        cells.forEach(cell => {
+          cell.addEventListener("touchend", e => {
+            e.preventDefault();
+    
+            if (lcdState == "0") {
+              sendHTTPrequest("lcd_backlight_on");
+              //TODO: handle error
+              lcdState = "1";
+              return;
+            }
+    
+            console.log(e.currentTarget.id);
+            if (e.currentTarget.id == "cell_1") {
+              document.getElementById("cell_1").innerHTML =
+                '<i class="fas fa-lightbulb"></i>';
+              sendHTTPrequest("lcd_backlight_off");
+              // TODO: handle error
+              lcdState = "0";
+            } else if (e.currentTarget.id == "cell_2") {
+            } else if (e.currentTarget.id == "cell_3") {
+            } else if (e.currentTarget.id == "cell_4") {
+            } else if (e.currentTarget.id == "cell_5") {
+            } else if (e.currentTarget.id == "cell_6") {
+            }
+          });
+        });
+    
+        function sendHTTPrequest(url) {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+            }
+          };
+          xhr.open("POST", "http://localhost:8081/" + url, true);
+          console.log(xhr);
+          xhr.send();
+        }
+      </script>
+    </html>
+    `
+    return html;
 }
 
 console.log('Server running at http://localhost:8081/');
