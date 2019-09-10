@@ -2,22 +2,168 @@
     "height":480,
     "width":800,
     "grid":{
-        "rows":"",
-        "columns":"",
+        "rows":"4",
+        "columns":"5",
         "cells": [
             {
-                "icon":"",
+                "icon":"<i class='far fa-lightbulb'></i>",
                 "text":"",
                 "action_url":"",
-                "background-color":"",
+                "icon-color":"",
+                "background-color":"#474747",
                 "horizontal-span":"",
                 "vertical-span":""
             },
             {
-                "icon":"",
+                "icon":"<i class='far fa-bell'></i>",
                 "text":"",
                 "action_url":"",
-                "background-color":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-left'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bookmark'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-calendar-alt'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-lightbulb'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bell'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-left'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bookmark'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-calendar-alt'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-lightbulb'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bell'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-left'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bookmark'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-calendar-alt'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"",
+                "background-color":"#474747",
                 "horizontal-span":"",
                 "vertical-span":""
             }
