@@ -3,7 +3,7 @@
     "width":800,
     "grid":{
         "rows":"4",
-        "columns":"5",
+        "columns":"6",
         "cells": [
             {
                 "icon":"<i class='far fa-lightbulb'></i>",
