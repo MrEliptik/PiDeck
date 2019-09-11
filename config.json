@@ -2,7 +2,7 @@
     "height":480,
     "width":800,
     "grid":{
-        "rows":"4",
+        "rows":"5",
         "columns":"6",
         "cells": [
             {
@@ -46,6 +46,114 @@
                 "text":"",
                 "action_url":"",
                 "icon-color":"#b8d9de",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-calendar-alt'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-lightbulb'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bell'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-left'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bookmark'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-calendar-alt'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-lightbulb'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bell'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-left'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='far fa-bookmark'></i>",
+                "text":"",
+                "action_url":"",
+                "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
                 "vertical-span":""
