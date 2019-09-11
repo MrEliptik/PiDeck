@@ -19,9 +19,8 @@ fs.readFile("config.json", function(err, data) {
         throw err;
     }
     configFile = JSON.parse(data);
-    console.log(configFile);
-
     html = createHTML(configFile);
+    console.log('Config file read succesfully!')
 });
 
 // Server creation
@@ -85,9 +84,12 @@ function createHTML(json_config){
     cells_css = '';
     for(var i = 0; i < json_config.grid.cells.length; i++){
       cells_html += `<div class="cell" id="cell_${i}">
-          ${json_config.grid.cells[i].icon}
-          ${json_config.grid.cells[i].text}
-        </div>`
+          ${json_config.grid.cells[i].icon}`
+      if(json_config.grid.cells[i].text != ""){
+        cells_html += `<div class="text">${json_config.grid.cells[i].text}</div>`
+      }
+      cells_html += '</div>'
+          
       cells_css += `#cell_${i}{
           background-color:${json_config.grid.cells[i]['background-color']};
           color:${json_config.grid.cells[i]['icon-color']};
@@ -110,11 +112,17 @@ function createHTML(json_config){
             height: ${json_config.height}px;
             width: ${json_config.width}px;
           }
+
+          .text{
+            /*font-size: calc(1em + 1vw);*/
+          }
     
           .grid {
-            max-width: ${json_config.width}px;
-            max_height: ${json_config.height}px;
+            width: 100vw;
+            height: 100vh;
             display: grid;
+            font-size: calc(2em + 1vw); 
+            text-align: center;
             grid-template-columns: repeat(auto-fit, minmax(${json_config.width/json_config.grid.columns}px, 1fr));
             /*grid-template-columns: repeat(${json_config.grid.columns}, minmax(0, 1fr));*/
             /*grid-auto-rows: 1fr;*/
@@ -147,7 +155,7 @@ function createHTML(json_config){
           ></iframe>
         </div>
       -->
-        <div class="grid" style="font-size: 64px; text-align: center;">
+        <div class="grid">
           ${cells_html}
         </div>
       </body>
