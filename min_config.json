@@ -2,31 +2,24 @@
     "height":480,
     "width":800,
     "grid":{
-        "rows":"5",
+        "rows":"3",
         "columns":"6",
         "cells": [
             {
                 "icon":"<i class='fas fa-power-off'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
-                "icon-color":"#81b0d6",
+                "action-url":"lcd_backlight_on",
+                "icon-color":"#d12a00",
                 "background-color":"#474747",
                 "horizontal-span":"",
                 "vertical-span":""
             },
             {
                 "icon":"<i class='fas fa-tv'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
-                "icon-color":"#b9d6ed",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='fas fa-angle-double-right'></i>",
-                "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#b9d6ed",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -34,8 +27,19 @@
             },
             {
                 "icon":"<i class='fas fa-angle-double-left'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
+                "icon-color":"#b9d6ed",
+                "background-color":"#474747",
+                "horizontal-span":"",
+                "vertical-span":""
+            },
+            {
+                "icon":"<i class='fas fa-angle-double-right'></i>",
+                "toggled-icon":"",
+                "text":"",
+                "action-url":"",
                 "icon-color":"#b8d9de",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -43,8 +47,9 @@
             },
             {
                 "icon":"<i class='far fa-bookmark'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#b8d9de",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -52,8 +57,9 @@
             },
             {
                 "icon":"<i class='far fa-calendar-alt'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -61,8 +67,9 @@
             },
             {
                 "icon":"<i class='fas fa-toggle-off'></i>",
+                "toggled-icon":"<i class='fas fa-toggle-on'></i>",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -70,8 +77,9 @@
             },
             {
                 "icon":"<i class='fas fa-toggle-on'></i>",
+                "toggled-icon":"<i class='fas fa-toggle-off'></i>",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -79,8 +87,9 @@
             },
             {
                 "icon":"<i class='fas fa-volume-off'></i>",
+                "toggled-icon":"<i class='fas fa-volume-up'></i>",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -88,8 +97,9 @@
             },
             {
                 "icon":"<i class='fas fa-volume-up'></i>",
+                "toggled-icon":"<i class='fas fa-volume-off'></i>",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -97,8 +107,9 @@
             },
             {
                 "icon":"<i class='far fa-bookmark'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -106,8 +117,9 @@
             },
             {
                 "icon":"<i class='far fa-calendar-alt'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -115,8 +127,9 @@
             },
             {
                 "icon":"<i class='far fa-lightbulb'></i>",
+                "toggled-icon":"<i class='fas fa-lightbulb'></i>",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -124,8 +137,9 @@
             },
             {
                 "icon":"<i class='far fa-bell'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -133,8 +147,9 @@
             },
             {
                 "icon":"<i class='fas fa-angle-double-right'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -142,8 +157,9 @@
             },
             {
                 "icon":"<i class='fas fa-angle-double-left'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -151,116 +167,9 @@
             },
             {
                 "icon":"<i class='far fa-bookmark'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-calendar-alt'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-lightbulb'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-bell'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='fas fa-angle-double-right'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='fas fa-angle-double-left'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-bookmark'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-calendar-alt'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-lightbulb'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-bell'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='fas fa-angle-double-right'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='fas fa-angle-double-left'></i>",
-                "text":"",
-                "action_url":"",
-                "icon-color":"#dcdede",
-                "background-color":"#474747",
-                "horizontal-span":"",
-                "vertical-span":""
-            },
-            {
-                "icon":"<i class='far fa-bookmark'></i>",
-                "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
@@ -268,8 +177,9 @@
             },
             {
                 "icon":"<i class='fas fa-chevron-down'></i>",
+                "toggled-icon":"",
                 "text":"",
-                "action_url":"",
+                "action-url":"",
                 "icon-color":"#dcdede",
                 "background-color":"#474747",
                 "horizontal-span":"",
