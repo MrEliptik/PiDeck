@@ -14,23 +14,6 @@ fs.readFile('./deck.html', function(err, data) {
     htmlFile = data;
 });
 
-/*
-fs.readFile('./style.css', function(err, data) {
-    if (err){
-        throw err;
-    }
-    cssFile = data;
-});
-
-
-fs.readFile('./upload.js', function(err, data) {
-    if (err){
-        throw err;
-    }
-    javascriptFile = data;
-});
-*/
-
 fs.readFile("config.json", function(err, data) {
     if (err){
         throw err;
@@ -98,9 +81,17 @@ function toggleDisplayBacklight(state){
 }
 
 function createHTML(json_config){
-    cells = '';
+    cells_html = '';
+    cells_css = '';
     for(var i = 0; i < json_config.grid.cells.length; i++){
-        cells += `<div class="cell" id="cell_${i}">${json_config.grid.cells[i].icon}${json_config.grid.cells[i].text}</div>`
+      cells_html += `<div class="cell" id="cell_${i}">
+          ${json_config.grid.cells[i].icon}
+          ${json_config.grid.cells[i].text}
+        </div>`
+      cells_css += `#cell_${i}{
+          background-color:${json_config.grid.cells[i]['background-color']};
+          color:${json_config.grid.cells[i]['icon-color']};
+        }`
     }
     html = `<!DOCTYPE html>
     <html lang="en">
@@ -120,10 +111,6 @@ function createHTML(json_config){
             width: ${json_config.width}px;
           }
     
-          i {
-            color: rgba(30, 135, 206, 0.835);
-          }
-    
           .grid {
             max-width: ${json_config.width}px;
             max_height: ${json_config.height}px;
@@ -133,14 +120,15 @@ function createHTML(json_config){
             /*grid-auto-rows: 1fr;*/
             grid-template-rows: repeat(auto-fit, minmax(${json_config.height/json_config.grid.rows}px, 1fr));
           }
+
+          ${cells_css}
     
           /* Just to make the grid visible */
           .grid > * {
             display: grid;
             justify-content: center;
             align-items: center;
-            background: rgba(71, 71, 71, 0.1);
-            border: 1px white solid;
+            border: 1px grey solid;
           }
         </style>
         <script src="https://kit.fontawesome.com/9a5860ea71.js"></script>
@@ -160,7 +148,7 @@ function createHTML(json_config){
         </div>
       -->
         <div class="grid" style="font-size: 64px; text-align: center;">
-          ${cells}
+          ${cells_html}
         </div>
       </body>
     
