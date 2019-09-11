@@ -14,7 +14,7 @@ fs.readFile('./deck.html', function(err, data) {
     htmlFile = data;
 });
 
-fs.readFile("config.json", function(err, data) {
+fs.readFile("min_config.json", function(err, data) {
     if (err){
         throw err;
     }
@@ -82,18 +82,37 @@ function toggleDisplayBacklight(state){
 function createHTML(json_config){
     cells_html = '';
     cells_css = '';
+    js = '';
     for(var i = 0; i < json_config.grid.cells.length; i++){
       cells_html += `<div class="cell" id="cell_${i}">
-          ${json_config.grid.cells[i].icon}`
+          <div class"icon">${json_config.grid.cells[i].icon}</div>`;
       if(json_config.grid.cells[i].text != ""){
-        cells_html += `<div class="text">${json_config.grid.cells[i].text}</div>`
+        cells_html += `<div class="text">${json_config.grid.cells[i].text}</div>`;
       }
-      cells_html += '</div>'
+      cells_html += '</div>';
           
       cells_css += `#cell_${i}{
           background-color:${json_config.grid.cells[i]['background-color']};
           color:${json_config.grid.cells[i]['icon-color']};
-        }`
+        }`;
+        js += `var cell_${i}_toggled = false;`
+      js += `document.getElementById('cell_${i}').addEventListener('touchend', () =>{ \n`;
+      if(json_config.grid.cells[i]['toggled-icon']){
+        js += `
+          if(cell_${i}_toggled){
+            cell_${i}_toggled = false;
+            document.getElementById('cell_${i}').firstElementChild.innerHTML = "${json_config.grid.cells[i]['icon']}";
+          }
+          else{
+            cell_${i}_toggled = true;
+            document.getElementById('cell_${i}').firstElementChild.innerHTML = "${json_config.grid.cells[i]['toggled-icon']}";
+          }\n`;  
+      }
+      console.log(json_config.grid.cells[i]['action-url']);
+      if(json_config.grid.cells[i]['action-url']){
+        js += `sendHTTPrequest("${json_config.grid.cells[i]['action-url']}"); \n`;
+      }
+      js += `}); \n`;
     }
     html = `<!DOCTYPE html>
     <html lang="en">
@@ -163,6 +182,9 @@ function createHTML(json_config){
       <script>
         var lcdState = "1";
     
+        ${js}
+
+        /*
         var cells = document.querySelectorAll(".cell");
         cells.forEach(cell => {
           cell.addEventListener("touchend", e => {
@@ -175,6 +197,7 @@ function createHTML(json_config){
               return;
             }
     
+            
             console.log(e.currentTarget.id);
             if (e.currentTarget.id == "cell_1") {
               document.getElementById("cell_1").innerHTML =
@@ -190,6 +213,7 @@ function createHTML(json_config){
             }
           });
         });
+        */
     
         function sendHTTPrequest(url) {
           var xhr = new XMLHttpRequest();
