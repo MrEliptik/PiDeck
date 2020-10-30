@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiDeck admin</title>
+    <link rel="icon" href="favicon.png">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        html,
+        body
+        {
+            background-color: #313030;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin:0 auto;
+            height: 100%;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        .title {
+            margin:0 auto;
+            width: 50%;
+        }
+        .config {
+            margin-top: 20 auto;
+            width: 75%;
+            height: 100%;
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="title">
+        <img src="assets/pideck_banner.png" alt="pideck banner" srcset="">
+    </div>
+
+    <div class="config">
+        <pre class="config_display">
+
+        </pre>
+    </div>
+    
+</body>
+<script>
+    requestConfig();
+    
+    function requestConfig() {
+        var xmlhttp = new XMLHttpRequest();
+        var url = "/min_config.json";
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                displayConfig(JSON.parse(this.responseText));
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+    
+    function displayConfig(json) {
+        var config = document.querySelector(".config_display");
+        config.innerHTML = JSON.stringify(json, undefined, 4);
+    }
+</script>
+</html>

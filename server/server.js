@@ -5,16 +5,22 @@ var SpotifyWebApi = require('spotify-web-api-node');
 
 var spotifyApi = new SpotifyWebApi();
 
+fs.readFile("server/deck/favicon.png", function(err, data) {
+  if (err){
+    throw err;
+  }
+  faviconFile = data;
+});
 
 // Reading the file that has to be displayed
-fs.readFile('./deck.html', function(err, data) {
+fs.readFile('server/deck/deck.html', function(err, data) {
     if (err){
         throw err;
     }
     htmlFile = data;
 });
 
-fs.readFile("min_config.json", function(err, data) {
+fs.readFile("server/min_config.json", function(err, data) {
     if (err){
         throw err;
     }
@@ -23,13 +29,57 @@ fs.readFile("min_config.json", function(err, data) {
     console.log('Config file read succesfully!')
 });
 
+fs.readFile("server/admin/admin.html", function(err, data) {
+  if (err){
+    throw err;
+  }
+  adminFile = data;
+});
+
+fs.readFile("server/admin/assets/pideck_banner.png", function(err, data) {
+  if (err){
+    throw err;
+  }
+  bannerFile = data;
+});
+
 // Server creation
 var server = http.createServer(function(req, res) {
 
   // GET method -> User wants something (html, css, etc..)
     if(req.method === "GET") {
+        console.log(req.url);
         // Serves different pages depending on what wants the client
         switch (req.url) {
+            case "/favicon.png":
+                // MIME type of your favicon.
+                //
+                // .ico = 'image/x-icon' or 'image/vnd.microsoft.icon'
+                // .png = 'image/png'
+                // .jpg = 'image/jpeg'
+                // .jpeg = 'image/jpeg'
+                res.setHeader('Content-Type', 'image/png');
+
+                // Serve your favicon and finish response.
+                res.write(faviconFile);
+                res.end();
+                break;
+            case "/min_config.json":
+                res.writeHead(200, {"Content-Type": "application/json"});
+                res.write(JSON.stringify(configFile));
+                res.end();
+                break;
+            case "/assets/pideck_banner.png":
+                res.writeHead(200, {'Content-Type': 'image/png'});
+                // Serve your favicon and finish response.
+                res.write(bannerFile);
+                res.end();
+              break;
+            case "/admin":
+                res.writeHead(200, {"Content-Type": "text/html"});
+                res.write(adminFile);
+                res.end();
+                break;
             case "/upload.js" :
                 res.writeHead(200, {"Content-Type": "application/js"});
                 res.write(javascriptFile);
@@ -108,7 +158,7 @@ function createHTML(json_config){
             document.getElementById('cell_${i}').firstElementChild.innerHTML = "${json_config.grid.cells[i]['toggled-icon']}";
           }\n`;  
       }
-      console.log(json_config.grid.cells[i]['action-url']);
+      //console.log(json_config.grid.cells[i]['action-url']);
       if(json_config.grid.cells[i]['action-url']){
         js += `sendHTTPrequest("${json_config.grid.cells[i]['action-url']}"); \n`;
       }
